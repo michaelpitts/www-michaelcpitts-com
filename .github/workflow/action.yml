@@ -1,7 +1,8 @@
 name: Push to Neocities
+run-name: ${{ github.actor }} is updating michaelcpitts.com
 on: [push]
 jobs:
-  Push to Neocities:
+  Push-to-Neocities:
     runs-on: ubuntu-latest
     steps:
       - run: echo "installing neocities CLI"
