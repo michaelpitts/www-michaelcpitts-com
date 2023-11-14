@@ -3,12 +3,12 @@ run-name: ${{ github.actor }} is updating michaelcpitts.com
 on: [push]
 jobs:
   Push-to-Neocities:
-    runs-on: ubuntu-latest
+    runs-on: macos-12
     steps:
-      - run: echo "update OS"
-      - run: sudo apt-get -y update; sudo apt-get -y upgrade
+      # - run: echo "update OS"
+      # - run: sudo apt-get -y update; sudo apt-get -y upgrade
       - run: echo "installing neocities CLI"
-      - run: sudo apt-get -y install ruby-full
+      # - run: sudo apt-get -y install ruby-full
       - run: sudo gem install neocities
       - run: echo "uploading files to Neocities"
       - run: echo "michaelpitts\n$NEOCITIES_TOKEN" | neocities push -e .github/* .
