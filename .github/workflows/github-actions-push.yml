@@ -9,6 +9,6 @@ jobs:
       # - run: sudo apt-get -y update; sudo apt-get -y upgrade
       - run: echo "installing neocities CLI"
       # - run: sudo apt-get -y install ruby-full
-      - run: sudo gem install neocities
+      - run: sudo gem install neocities -f 
       - run: echo "uploading files to Neocities"
       - run: echo "michaelpitts\n$NEOCITIES_TOKEN" | neocities push -e .github/* .
