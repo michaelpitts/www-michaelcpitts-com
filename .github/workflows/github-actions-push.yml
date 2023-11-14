@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is updating michaelcpitts.com
 on: [push]
 jobs:
   Push-to-Neocities:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     steps:
       # - run: echo "update OS"
       # - run: sudo apt-get -y update; sudo apt-get -y upgrade
