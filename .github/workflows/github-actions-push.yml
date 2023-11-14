@@ -12,4 +12,5 @@ jobs:
       # - run: sudo apt-get -y install ruby-full
       - run: sudo gem install neocities -f 
       - run: echo "uploading files to Neocities"
-      - run: echo "michaelpitts\n$NEOCITIES_TOKEN" | neocities push -e .github/* .
+      - run: chmod +x ./upload.bash
+      - run: bash ./upload.bash
