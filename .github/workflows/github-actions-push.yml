@@ -5,8 +5,10 @@ jobs:
   Push-to-Neocities:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "update OS"
+      - run: sudo apt-get -y update; sudo apt-get -y upgrade
       - run: echo "installing neocities CLI"
       - run: sudo apt-get -y install ruby-full
-      - run: sudo gem install neocities || true
+      - run: sudo gem install neocities
       - run: echo "uploading files to Neocities"
       - run: echo "michaelpitts\n$NEOCITIES_TOKEN" | neocities push -e .github/* .
