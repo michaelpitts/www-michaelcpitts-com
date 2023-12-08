@@ -1,17 +1,21 @@
 name: Push to Neocities
 run-name: ${{ github.actor }} is updating michaelcpitts.com
-on: [push]
+on:
+  push:
+    branches:
+      - master
+concurrency: # prevent concurrent deploys doing strange things
+  group: deploy-to-neocities
+  cancel-in-progress: true
+  
 jobs:
-  Push-to-Neocities:
+  deploy: 
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+
     steps:
-      # - run: echo "update OS"
-      # - run: sudo apt-get -y update; sudo apt-get -y upgrade
-      - run: echo "installing neocities CLI"
-      # - run: sudo apt-get -y install ruby-full
-      - run: sudo gem install neocities -f 
-      - run: echo "troubleshooting, running list command"
-      - run: ls -la ; ls -la ../; ls -la ../../
-      - run: echo "uploading files to Neocities"
-      - run: echo "michaelpitts\n$NEOCITIES_TOKEN" | neocities push -e .github/* .
+    - name: Deploy to neocities
+      uses: bcomnes/deploy-to-neocities@v1
+      with:
+        api_token: ${{ secrets.NEOCITIES_TOKEN }}
+        cleanup: false
+        dist_dir: public
