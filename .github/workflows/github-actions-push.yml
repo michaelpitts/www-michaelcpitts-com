@@ -18,7 +18,7 @@ jobs:
       with:
         api_token: ${{ secrets.NEOCITIES_TOKEN }}
         cleanup: false
-        dist_dir: ../public
+        dist_dir: ../public/*
 
     - name: Cloudflare Cache Purge Action
       uses: NathanVaughn/actions-cloudflare-purge@v3.1.0
