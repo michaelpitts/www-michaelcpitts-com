@@ -12,7 +12,7 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps:
-    
+
     - name: checkout
       uses: actions/checkout@v2
 
@@ -21,7 +21,7 @@ jobs:
       with:
         api_token: ${{ secrets.NEOCITIES_TOKEN }}
         cleanup: false
-        dist_dir: ../index.html
+        dist_dir: ../public/index.html
 
     - name: Cloudflare Cache Purge Action
       uses: NathanVaughn/actions-cloudflare-purge@v3.1.0
